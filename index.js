@@ -2,7 +2,8 @@ const Discord = require('discord.js')
 const cheerio = require('cheerio')
 const request = require('request')
 const Bot = new Discord.Client()
-const prefix = '-'
+const prefix = '-' 
+Bot.login('NzUyMTM1MTUwOTg4Njg5NDIw.X1TOcQ.vt2T9dJzYks-IZNdxGbpDF1KQOw')
 
 //when the bot is called
 Bot.on('message', (message)=>{
@@ -16,27 +17,10 @@ Bot.on('message', (message)=>{
     if(args[0]==='meme'){
         image(args[0])   
     }
-    if(args[0]===''){
-
+    if(args[0]==='kik'){
+        
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function image(message){
     var options = {
@@ -73,4 +57,4 @@ function image(message){
 }
 
 
-Bot.login('NzUyMTM1MTUwOTg4Njg5NDIw.X1TOcQ.vt2T9dJzYks-IZNdxGbpDF1KQOw')
+
