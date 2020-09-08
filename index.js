@@ -85,7 +85,7 @@ function image(message){
             message.channel.send(urls[Math.floor(Math.random() * urls.length)]).catch(console.error);
         });
 }
-Bot.login(process.argv)
+Bot.login(process.env.token)
 
 
 
