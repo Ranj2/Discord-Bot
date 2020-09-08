@@ -10,6 +10,7 @@ const prefix = '-'
 
 //when the bot is called
 Bot.on('message', (message)=>{
+    try{
     
     if(!message.content.startsWith(prefix)|| message.author.bot)return;
 
@@ -44,6 +45,10 @@ Bot.on('message', (message)=>{
             message.channel.send('You must be in a nsfw channel to use this command')
         }
     }
+    
+}catch(e){       
+console.log(e)
+}
 });
 
 
