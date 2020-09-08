@@ -1,9 +1,12 @@
 const Discord = require('discord.js')
 const cheerio = require('cheerio')
 const request = require('request')
+const DabiImages = require("dabi-images")
+const hentai = require('dabi-images/tags/nsfw/hentai')
+const DabiClient = new DabiImages.Client()
 const Bot = new Discord.Client()
 const prefix = '-' 
-Bot.login('NzUyMTM1MTUwOTg4Njg5NDIw.X1TOcQ.vt2T9dJzYks-IZNdxGbpDF1KQOw')
+
 
 //when the bot is called
 Bot.on('message', (message)=>{
@@ -15,12 +18,38 @@ Bot.on('message', (message)=>{
     
     
     if(args[0]==='meme'){
-        image(args[0])   
+        //image(args[0])   
     }
-    if(args[0]==='kik'){
-        
+
+    if(args[0]==='porn'){
+        if(message.channel.nsfw===true){
+            DabiClient.nsfw.real.random().then((link)=>{
+                message.channel.send(link.url)
+            })  
+        }else{ 
+            message.channel.send('https://memegenerator.net/img/instances/67078805/what-are-you-doing.jpg')
+            message.channel.send('You must be in a nsfw channel to use this command')
+        } 
+    }
+
+    if(args[0]==='hentai'){
+        if(message.channel.nsfw===true){
+            const hentai_options = ['ass','thighs','panties','feet']
+            choice = hentai_options [Math.floor(Math.random() * hentai_options.length)]
+            DabiClient.nsfw.hentai.panties().then((link)=>{
+                message.channel.send(link.url)
+            })  
+        }else{ 
+            message.channel.send('https://memegenerator.net/img/instances/67078805/what-are-you-doing.jpg')
+            message.channel.send('You must be in a nsfw channel to use this command')
+        }
     }
 });
+
+
+
+    
+
 
 function image(message){
     var options = {
@@ -52,9 +81,11 @@ function image(message){
             }
   
             // Send result
-            message.channel.send( urls[Math.floor(Math.random() * urls.length)]);
+            console.log(message.channel)
+            message.channel.send(urls[Math.floor(Math.random() * urls.length)]).catch(console.error);
         });
 }
+Bot.login(process.argv)
 
 
 
