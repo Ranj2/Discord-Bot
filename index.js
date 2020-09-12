@@ -37,9 +37,7 @@ Bot.on('message', (message)=>{
         if(message.channel.nsfw===true){
             const hentai_options = ['ass','thighs','panties','feet']
             choice = hentai_options [Math.floor(Math.random() * hentai_options.length)]
-            DabiClient.nsfw.hentai.panties().then((link)=>{
-                message.channel.send(link.url)
-            })  
+            hentai(choice)  
         }else{ 
             message.channel.send('https://memegenerator.net/img/instances/67078805/what-are-you-doing.jpg')
             message.channel.send('You must be in a nsfw channel to use this command')
@@ -49,47 +47,33 @@ Bot.on('message', (message)=>{
 }catch(e){       
 console.log(e)
 }
+
+function hentai(choice){
+    if(choice==='ass'){
+        DabiClient.nsfw.hentai.ass().then((link)=>{
+            message.channel.send(link.url)
+        })
+    }
+    else if(choice==='thighs'){
+        DabiClient.nsfw.hentai.thighs().then((link)=>{
+            message.channel.send(link.url)
+        })
+    }
+    else if(choice==='panties'){
+        DabiClient.nsfw.hentai.panties().then((link)=>{
+            message.channel.send(link.url)
+        })
+    }
+    else if(choice==='feet'){
+        DabiClient.nsfw.hentai.feet().then((link)=>{
+            message.channel.send(link.url)
+        })
+    }
+
+}
+
 });
 
-
-
-    
-
-
-function image(message){
-    var options = {
-        url: "http://results.dogpile.com/serp?qc=images&q=" + `${message}`,
-        method: "GET",
-        headers: {
-            "Accept": "text/html",
-            "User-Agent": "Chrome"
-           }
-
-        };
-        request(options, function(error, response, responseBody) {
-            if (error) {
-                return;
-            }
-  
-  
-            $ = cheerio.load(responseBody);
-  
-  
-            var links = $(".image a.link");
-  
-            var urls = new Array(links.length).fill(0).map((v, i) => links.eq(i).attr("href"));
-  
-            console.log(urls);
-  
-            if (!urls.length) {
-                return;
-            }
-  
-            // Send result
-            console.log(message.channel)
-            message.channel.send(urls[Math.floor(Math.random() * urls.length)]).catch(console.error);
-        });
-}
 Bot.login(process.env.token)
 
 
