@@ -2,7 +2,6 @@ const Discord = require('discord.js')
 const cheerio = require('cheerio')
 const request = require('request')
 const DabiImages = require("dabi-images")
-const hentai = require('dabi-images/tags/nsfw/hentai')
 const DabiClient = new DabiImages.Client()
 const Bot = new Discord.Client()
 const prefix = '-' 
@@ -22,30 +21,25 @@ Bot.on('message', (message)=>{
         //image(args[0])   
     }
 
-    if(args[0]==='porn'){
-        if(message.channel.nsfw===true){
+    if(message.channel.nsfw===true){
+
+        if(args[0]==='porn'){
             DabiClient.nsfw.real.random().then((link)=>{
                 message.channel.send(link.url)
             })  
-        }else{ 
-            message.channel.send('https://memegenerator.net/img/instances/67078805/what-are-you-doing.jpg')
-            message.channel.send('You must be in a nsfw channel to use this command')
-        } 
-    }
-
-    if(args[0]==='hentai'){
-        if(message.channel.nsfw===true){
+        }
+        else if(args[0]==='hentai'){ 
             const hentai_options = ['ass','thighs','panties','feet']
             choice = hentai_options [Math.floor(Math.random() * hentai_options.length)]
             hentai(choice)  
-        }else{ 
-            message.channel.send('https://memegenerator.net/img/instances/67078805/what-are-you-doing.jpg')
-            message.channel.send('You must be in a nsfw channel to use this command')
         }
     }
-    
+    else{ 
+        message.channel.send('https://memegenerator.net/img/instances/67078805/what-are-you-doing.jpg')
+        message.channel.send('You must be in a nsfw channel to use this command')
+    }    
 }catch(e){       
-console.log(e)
+    console.log(e)
 }
 
 function hentai(choice){
