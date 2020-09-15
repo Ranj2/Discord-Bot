@@ -15,7 +15,9 @@ Bot.on('message', (message)=>{
     if(!message.content.startsWith(prefix)|| message.author.bot||message.content !='-hentai'||message.content !='-porn')return;
 
     //slicing the command into a string array
-    const args = message.content.toLowerCase().slice(prefix.length).split(" ")
+    const args = message.content.slice(prefix.length).split(" ")
+    message.channel.send('hello')
+
     
 
     if(message.channel.nsfw===true){
