@@ -1,6 +1,4 @@
 const Discord = require('discord.js')
-const cheerio = require('cheerio')
-const request = require('request')
 const DabiImages = require("dabi-images")
 const pornHub = require('pornhub.js')
 const GifSearch = require('pornhub.js/src/entity/search/gif')
@@ -22,18 +20,21 @@ Bot.on('message', (message)=>{
 
     if(message.channel.nsfw===true){
 
-        if(args[0]==='porn'){
+        if(args[0].equalsIgnoreCase('porn')){
             DabiClient.nsfw.real.random().then((link)=>{
                 message.channel.send(link.url)
             })  
         }
-        else if(args[0]==='hentai'){ 
+
+        else if(args[0].equalsIgnoreCase('hentai')){ 
             const hentai_options = ['ass','thighs','panties','feet']
             choice = hentai_options [Math.floor(Math.random() * hentai_options.length)]
             random_hentai(choice)  
         }
+
         else if(args[0]==='porn' && args[1]==='gif'){
         }
+
         else if(args[0]==='hentai' && args[1]==='gif'){
             
         }

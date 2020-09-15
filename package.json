@@ -9,10 +9,8 @@
   "author": "Ranj Mohammad",
   "license": "ISC",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3",
     "dabi-images": "^2.7.5",
     "discord.js": "^12.3.1",
-    "pornhub.js": "^0.2.2",
-    "rquest": "^0.1.0"
+    "pornhub.js": "^0.2.2"
   }
 }
