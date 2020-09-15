@@ -12,11 +12,13 @@ const prefix = '-'
 Bot.on('message', (message)=>{
     try{
     
-    if(!message.content.startsWith(prefix)|| message.author.bot||message.content !='-hentai'||message.content !='-porn')return;
+    if(!message.content.startsWith(prefix)|| message.author.bot)return;
 
     //slicing the command into a string array
     const args = message.content.slice(prefix.length).split(" ")
-    message.channel.send('hello')
+    for (var i = 0; i < args.length; i++) {
+        args.push(args[i].toLowerCase());
+    }
 
     
 
