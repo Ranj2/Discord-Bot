@@ -15,18 +15,18 @@ Bot.on('message', (message)=>{
     if(!message.content.startsWith(prefix)|| message.author.bot||message.content !='-hentai'||message.content !='-porn')return;
 
     //slicing the command into a string array
-    const args = message.content.slice(prefix.length).split(" ")
+    const args = message.content.slice(prefix.length).split(" ").toLowerCase()
     
 
     if(message.channel.nsfw===true){
 
-        if(args[0].equalsIgnoreCase('porn')){
+        if(args[0]==='porn'){
             DabiClient.nsfw.real.random().then((link)=>{
                 message.channel.send(link.url)
             })  
         }
 
-        else if(args[0].equalsIgnoreCase('hentai')){ 
+        else if(args[0]==='hentai'){ 
             const hentai_options = ['ass','thighs','panties','feet']
             choice = hentai_options [Math.floor(Math.random() * hentai_options.length)]
             random_hentai(choice)  
