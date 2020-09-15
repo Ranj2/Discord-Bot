@@ -16,9 +16,7 @@ Bot.on('message', (message)=>{
 
     //slicing the command into a string array
     const args = message.content.slice(prefix.length).split(" ")
-    for (var i = 0; i < args.length; i++) {
-        args.push(args[i].toLowerCase());
-    }
+    
 
     
 
