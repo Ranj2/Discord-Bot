@@ -14,13 +14,13 @@ const prefix = '-'
 Bot.on('message', (message)=>{
     try{
     
-    if(!message.content.startsWith(prefix)|| message.author.bot)return;
+    if(!message.content.startsWith(prefix)|| message.author.bot||!message.content ==='-hentai'||!message.content ==='-porn')return;
 
     //slicing the command into a string array
     const args = message.content.slice(prefix.length).split(" ")
     
 
-    if(args[0]==='porn' || args[0]==='hentai' && message.channel.nsfw===true){
+    if(message.channel.nsfw===true){
 
         if(args[0]==='porn'){
             DabiClient.nsfw.real.random().then((link)=>{
