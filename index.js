@@ -14,7 +14,7 @@ const prefix = '-'
 Bot.on('message', (message)=>{
     try{
     
-    if(!message.content.startsWith(prefix)|| message.author.bot||!message.content ==='-hentai'||!message.content ==='-porn')return;
+    if(!message.content.startsWith(prefix)|| message.author.bot||message.content !='-hentai'||message.content !='-porn')return;
 
     //slicing the command into a string array
     const args = message.content.slice(prefix.length).split(" ")
