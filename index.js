@@ -59,7 +59,7 @@ Bot.on('message', (message)=>{
             
             for (let member of message.member.voice.channel.members) {
                 console.log(member)
-                member.setMute(true)
+                await member.setMute(true, 'anyways').catch()
             }
 
         }
