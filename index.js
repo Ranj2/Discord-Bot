@@ -58,7 +58,7 @@ Bot.on('message', (message)=>{
             let channel = message.guild.channels.cache.get(
                 message.member.voice.channel.id
               );  
-              for (const [memberID, member] of channel.members) {
+              for (const member of channel.members) {
                 member.voice.setMute(true);
               }
 
@@ -68,7 +68,7 @@ Bot.on('message', (message)=>{
             let channel = message.guild.channels.cache.get(
                 message.member.voice.channel.id
               );
-              for (const [memberID, member] of channel.members) {
+              for (const member of channel.members) {
                 member.voice.setMute(false);
               }
 
