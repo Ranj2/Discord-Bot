@@ -55,10 +55,9 @@ Bot.on('message', (message)=>{
     if(message.channel.nsfw===false){
         if(args[0]==='mute' && message.member.hasPermission("ADMINISTRATOR")){
             
-            let channel = message.member.voiceChannel;
-            console.log(channel.members)
-            
-            for (let member of channel.members) {
+
+            console.log(message.voiceChannel.members)
+            for (let member of message.voiceChannel.members) {
                 member[1].setMute(true)
             }
 
