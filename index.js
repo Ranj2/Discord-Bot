@@ -57,7 +57,6 @@ Bot.on('message', (message)=>{
             
             let channel = message.member.voiceChannel;
             console.log(message.member)
-            console.log(channel)
             
             for (let member of channel.members) {
                 member[1].setMute(true)
