@@ -27,7 +27,8 @@ Bot.on('message', (message)=>{
                                             ` \n ${prefix}hentai to see a random hentai image`+
                                             ` \n ${prefix}porn gif for a random porn gif`+
                                             ` \n ${prefix}hentai gif for a random hentai gif`+
-                                            `\n ${prefix}mute to mute all members in the voice channel that you are in`)
+                                            `\n ${prefix}mute to mute all members in the voice channel that you are in`+
+                                            `\n ${prefix}unmute to unmute all members in the voice channel that you are in`)
         }
 
         else if(args[0]==='porn'){
@@ -55,8 +56,18 @@ Bot.on('message', (message)=>{
         if(args[0]==='mute' && message.member.hasPermission("ADMINISTRATOR")){
             
             let channel = message.member.voiceChannel;
+            
             for (let member of channel.members) {
                 member[1].setMute(true)
+            }
+
+        }
+        else if(args[0]==='unmute' && message.member.hasPermission("ADMINISTRATOR")){
+            
+            let channel = message.member.voiceChannel;
+            
+            for (let member of channel.members) {
+                member[1].setMute(false)
             }
 
         }
