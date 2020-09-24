@@ -58,14 +58,14 @@ Bot.on('message', (message)=>{
 
             console.log(message.member.voice.channel)
             for (let member of message.member.voice.channel.members) {
-                member[1].setMute(true)
+                member.setMute(true)
             }
 
         }
         else if(args[0]==='unmute' && message.member.hasPermission("ADMINISTRATOR")){
                      
             for (let member of message.member.voice.channel.members) {
-                member[1].setMute(false)
+                member.setMute(false)
             }
 
         }
