@@ -26,7 +26,8 @@ Bot.on('message', (message)=>{
                                             ` \n ${prefix}porn to see a random irl porn image`+
                                             ` \n ${prefix}hentai to see a random hentai image`+
                                             ` \n ${prefix}porn gif for a random porn gif`+
-                                            ` \n ${prefix}hentai gif for a random hentai gif`)
+                                            ` \n ${prefix}hentai gif for a random hentai gif`+
+                                            `\n ${prefix}mute to mute all members in the voice channel that you are in`)
         }
 
         else if(args[0]==='porn'){
@@ -50,11 +51,16 @@ Bot.on('message', (message)=>{
         }
         
     }
+    if(message.channel.nsfw===false){
+        if(args[0]==='mute' && message.member.hasPermission("ADMINISTRATOR")){
+            
+            let channel = message.member.voiceChannel;
+            for (let member of channel.members) {
+                member[1].setMute(true)
+            }
 
-    else{ 
-        message.channel.send('https://memegenerator.net/img/instances/67078805/what-are-you-doing.jpg')
-        message.channel.send('You must be in a nsfw channel to use this command')
-    } 
+        }
+    }
 
 
 
