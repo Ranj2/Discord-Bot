@@ -53,7 +53,7 @@ Bot.on('message', (message)=>{
         
     }
     if(message.channel.nsfw===false){
-        if(message.member.hasPermission("ADMINISTRATOR") && ( args[0]==='unmute' || args[0]=== 'm')){
+        if(message.member.hasPermission("ADMINISTRATOR") && ( args[0]==='mute' || args[0]=== 'm')){
             
             let channel = message.guild.channels.cache.get(
                 message.member.voice.channel.id
