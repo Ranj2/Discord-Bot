@@ -55,12 +55,15 @@ Bot.on('message', (message)=>{
     if(message.channel.nsfw===false){
         if(args[0]==='mute' && message.member.hasPermission("ADMINISTRATOR")){
             
-
+            let channel = message.guild.channels.cache.get(
+                message.member.voice.channel.id
+              );
             
-            for (let member of message.member.voice.channel.members) {
-                console.log(member)
-                member.voice.setMute(true, 'anyways').catch()
-            }
+              for (const [memberID, member] of channel.members) {
+                // following if statement to mute everyone but the invoker:
+                // if (member != message.member)
+                member.voice.setMute(true);
+              }
 
         }
         else if(args[0]==='unmute' && message.member.hasPermission("ADMINISTRATOR")){
