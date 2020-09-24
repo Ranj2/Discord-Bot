@@ -53,7 +53,7 @@ Bot.on('message', (message)=>{
         
     }
     if(message.channel.nsfw===false){
-        if(args[0]==='mute' && message.member.hasPermission("ADMINISTRATOR")){
+        if(message.member.hasPermission("ADMINISTRATOR") && ( args[0]==='unmute' || args[0]=== 'm')){
             
             let channel = message.guild.channels.cache.get(
                 message.member.voice.channel.id
@@ -64,7 +64,7 @@ Bot.on('message', (message)=>{
               }
 
         }
-        else if(args[0]==='unmute' && message.member.hasPermission("ADMINISTRATOR")){
+        else if(  message.member.hasPermission("ADMINISTRATOR") && (args[0]==='unmute' || args[0]==='u') ){
                      
             let channel = message.guild.channels.cache.get(
                 message.member.voice.channel.id
