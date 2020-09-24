@@ -56,8 +56,8 @@ Bot.on('message', (message)=>{
         if(args[0]==='mute' && message.member.hasPermission("ADMINISTRATOR")){
             
 
-            console.log(message.voiceChannel.members)
-            for (let member of message.voiceChannel.members) {
+            console.log(message.voiceChannel.member)
+            for (let member of message.voiceChannel.member) {
                 member[1].setMute(true)
             }
 
