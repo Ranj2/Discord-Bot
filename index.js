@@ -27,8 +27,8 @@ Bot.on('message', (message)=>{
                                             ` \n ${prefix}hentai to see a random hentai image`+
                                             ` \n ${prefix}porn gif for a random porn gif`+
                                             ` \n ${prefix}hentai gif for a random hentai gif`+
-                                            `\n ${prefix}mute to mute all members in the voice channel that you are in`+
-                                            `\n ${prefix}unmute to unmute all members in the voice channel that you are in`)
+                                            `\n ${prefix}mute or ${prefix}m to mute all members in the voice channel that you are in`+
+                                            `\n ${prefix}unmute or ${prefix}u unmute all members in the voice channel that you are in`)
         }
 
         else if(args[0]==='porn'){
