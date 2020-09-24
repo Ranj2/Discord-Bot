@@ -71,7 +71,7 @@ Bot.on('message', (message)=>{
               );
             
               for (const [memberID, member] of channel.members) {
-                member.voice.setMute(true);
+                member.voice.setMute(false);
               }
 
         }
