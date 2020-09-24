@@ -59,14 +59,14 @@ Bot.on('message', (message)=>{
             
             for (let member of message.member.voice.channel.members) {
                 console.log(member)
-                member.setMute(true, 'anyways').catch()
+                member.voice.setMute(true, 'anyways').catch()
             }
 
         }
         else if(args[0]==='unmute' && message.member.hasPermission("ADMINISTRATOR")){
                      
             for (let member of message.member.voice.channel.members) {
-                member.setMute(false)
+                member.voice.setMute(false)
             }
 
         }
