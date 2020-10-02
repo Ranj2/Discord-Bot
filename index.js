@@ -35,6 +35,7 @@ Bot.on('message', (message)=>{
         else if(args[0]==='porn'){
             DabiClient.nsfw.real.random().then((link)=>{
                 message.channel.send(link.url)
+                random_porn_gif()
             })  
         }
 
