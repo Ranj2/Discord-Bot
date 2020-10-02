@@ -2,10 +2,11 @@ const Discord = require('discord.js')
 const DabiImages = require("dabi-images")
 const pornHub = require('pornhub.js')
 const GifSearch = require('pornhub.js/src/entity/search/gif')
+const porn_choices =  require ('./porn_options.json')
 const pornhub = new pornHub();
 const DabiClient = new DabiImages.Client()
 const Bot = new Discord.Client()
-const prefix = '/' 
+const prefix = '/'
 
 
 //when the bot is called
@@ -27,8 +28,8 @@ Bot.on('message', (message)=>{
                                             ` \n ${prefix}hentai to see a random hentai image`+
                                             ` \n ${prefix}porn gif for a random porn gif`+
                                             ` \n ${prefix}hentai gif for a random hentai gif`+
-                                            `\n ${prefix}mute or ${prefix}m to mute all members in the voice channel that you are in`+
-                                            `\n ${prefix}unmute or ${prefix}u unmute all members in the voice channel that you are in`)
+                                            ` \n ${prefix}mute or ${prefix}m to mute all members in the voice channel that you are in`+
+                                            ` \n ${prefix}unmute or ${prefix}u unmute all members in the voice channel that you are in`)
         }
 
         else if(args[0]==='porn'){
@@ -81,9 +82,21 @@ Bot.on('message', (message)=>{
 
 
     function random_porn_gif(){
+        let options = porn_choices.option
+        let random_option = [Math.floor(Math.random() * options.length)]
+
+        pornhub.search('Gif', random_option ,{sexualOrientation: 'straight'}).then(res => {
+            let res_length = res.data.length
+            let random_url = [Math.floor(Math.random() * res_length.length)]
+        })
+        message.channel.send(random_url)
 
     }
+
     function random_hentai_gif(){
+        pornhub.search('Gif', 'Sexy',{sexualOrientation: 'straight'}).then(res => {
+            console.log(res.data)
+        })
 
     }
     function random_hentai(choice){
