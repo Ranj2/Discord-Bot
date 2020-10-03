@@ -32,14 +32,14 @@ Bot.on('message', (message)=>{
                                             ` \n ${prefix}unmute or ${prefix}u unmute all members in the voice channel that you are in`)
         }
 
-        else if(args[0]==='porn'){
+        else if(args[0]==='porn' && args.length===1){
             DabiClient.nsfw.real.random().then((link)=>{
                 message.channel.send(link.url)
                 random_porn_gif()
             })  
         }
 
-        else if(args[0]==='hentai'){ 
+        else if(args[0]==='hentai' && args.length===1){ 
             const hentai_options = ['ass','thighs','panties','feet']
             choice = hentai_options [Math.floor(Math.random() * hentai_options.length)]
             random_hentai(choice)  
