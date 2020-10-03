@@ -87,8 +87,11 @@ Bot.on('message', (message)=>{
         let random_option = options[Math.floor(Math.random() * options.length)]
 
         pornhub.search('Gif', random_option ,{sexualOrientation: 'straight'}).then(res => {
+            console.log(res.data)
             let res_length = res.data.length
+            console.log(res_length)
             let random_url = [Math.floor(Math.random() * res_length.length)]
+            console.log(random_url)
             message.channel.send(random_url)
         })
         
