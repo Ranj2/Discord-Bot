@@ -90,7 +90,7 @@ Bot.on('message', (message)=>{
             console.log(res.data)
             let res_length = res.data.length
             console.log(res_length)
-            let random_url = [Math.floor(Math.random() * res_length.length)]
+            let random_url = [Math.floor(Math.random() * res_length)]
             console.log(random_url)
             message.channel.send(random_url)
         })
