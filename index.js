@@ -35,14 +35,13 @@ Bot.on('message', (message)=>{
         else if(args[0]==='porn' && args.length===1){
             DabiClient.nsfw.real.random().then((link)=>{
                 message.channel.send(link.url)
-                random_porn_gif()
             })  
         }
 
         else if(args[0]==='hentai' && args.length===1){ 
             const hentai_options = ['ass','thighs','panties','feet']
             choice = hentai_options [Math.floor(Math.random() * hentai_options.length)]
-            random_hentai(choice)  
+            random_hentai_pic(choice)  
         }
 
         else if(args[0]==='porn' && args[1]==='gif'){
@@ -101,7 +100,7 @@ Bot.on('message', (message)=>{
         })
 
     }
-    function random_hentai(choice){
+    function random_hentai_pic(choice){
         if(choice==='ass'){
             DabiClient.nsfw.hentai.ass().then((link)=>{
                 message.channel.send(link)
