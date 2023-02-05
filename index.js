@@ -131,6 +131,14 @@ Bot.on('message', (message)=>{
 
 });
 
+Bot.on('voiceStateUpdate', () => {
+  let memchange = newState.member;
+  if (memchange.selfDeaf) {
+    memchange.disconnect();
+  } else return;
+
+});
+
 Bot.login(process.env.token)
 
 
